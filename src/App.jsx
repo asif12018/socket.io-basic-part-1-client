@@ -23,7 +23,9 @@ const App = () => {
       socket.emit('send-message', {message, room})
       setMessage('');
   }
+  
 
+  //function to join user by room
   const joinRoomHandler = (e) =>{
     e.preventDefault();
     socket.emit('join-room', roomName)
@@ -65,7 +67,8 @@ const App = () => {
      <Typography variant='h6' component={'div'} gutterBottom>
         {socketId}
      </Typography>
-
+     
+     {/*======  form to join user by form  ======*/}
      <form onSubmit={joinRoomHandler}>
       <h5>Join Room</h5>
       <TextField value={roomName} onChange={(e)=> setRoomName(e.target.value)} id='outline-basic' label='Room Name' variant='outlined'/>
